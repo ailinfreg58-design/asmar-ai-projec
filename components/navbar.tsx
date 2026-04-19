@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { href: "#live", label: "Live", labelAr: "مباشر", icon: Zap },
-  { href: "#matches", label: "Match Center", labelAr: "المباريات", icon: Calendar },
-  { href: "#analysis", label: "AI Analysis", labelAr: "تحليل الذكاء", icon: BarChart3 },
-  { href: "#trending", label: "Trending", labelAr: "الأكثر رواجاً", icon: TrendingUp },
+  { href: "#matches", label: "Match Center", labelAr: "مركز المباريات", icon: Calendar },
+  { href: "#analysis", label: "AI Analysis", labelAr: "التحليل الذكي", icon: BarChart3 },
+  { href: "#trending", label: "Trending", labelAr: "الأكثر متابعة", icon: TrendingUp },
 ]
 
 export function Navbar() {
@@ -28,7 +28,7 @@ export function Navbar() {
               <span className="text-lg font-bold tracking-tight text-foreground">
                 S-SPORTS
               </span>
-              <span className="text-xs font-medium text-primary neon-text-green" dir="rtl">
+              <span className="text-xs font-medium text-primary neon-text-green">
                 كورة
               </span>
             </div>

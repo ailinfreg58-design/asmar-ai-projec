@@ -51,7 +51,7 @@ export function Footer() {
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                   Stay in the <span className="text-primary neon-text-green">Game</span>
                 </h3>
-                <p className="text-lg text-secondary font-medium" dir="rtl">ابق في اللعبة</p>
+                <p className="text-lg text-secondary font-medium" dir="rtl">ابقَ على اطلاع</p>
                 <p className="text-muted-foreground mt-2">
                   Get exclusive AI predictions and match alerts delivered to your inbox
                 </p>
@@ -83,14 +83,14 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-foreground">S-SPORTS</span>
-                <span className="text-xs font-medium text-primary" dir="rtl">كورة</span>
+                <span className="text-xs font-medium text-primary">كورة</span>
               </div>
             </Link>
             <p className="text-sm text-muted-foreground mb-4 max-w-xs">
               The ultimate AI-powered sports data platform for enthusiasts and professionals alike.
             </p>
             <p className="text-sm text-secondary mb-6" dir="rtl">
-              منصة البيانات الرياضية المدعومة بالذكاء الاصطناعي
+              منصة النتائج الرياضية المدعومة بالذكاء الاصطناعي
             </p>
             
             {/* Social Links */}

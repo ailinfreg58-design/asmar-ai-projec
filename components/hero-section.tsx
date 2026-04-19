@@ -112,10 +112,10 @@ export function HeroSection() {
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4">
             <span className="text-foreground">S-SPORTS</span>
-            <span className="text-primary neon-text-green ml-3">Kora</span>
+            <span className="text-primary neon-text-green ml-3">كورة</span>
           </h1>
           <p className="text-xl md:text-2xl text-primary font-semibold mb-2 neon-text-green" dir="rtl">
-            منصة البيانات الرياضية المتقدمة
+            منصة النتائج الرياضية المباشرة
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Real-time sports analytics powered by cutting-edge AI technology
@@ -129,7 +129,7 @@ export function HeroSection() {
               <div className="flex flex-col items-center justify-center py-12">
                 <Loader2 className="h-12 w-12 text-primary animate-spin mb-4" />
                 <p className="text-muted-foreground">Loading live matches...</p>
-                <p className="text-sm text-secondary" dir="rtl">جاري تحميل المباريات المباشرة</p>
+                <p className="text-sm text-secondary" dir="rtl">جارٍ تحميل المباريات المباشرة</p>
               </div>
             ) : error || !currentMatch ? (
               <div className="flex flex-col items-center justify-center py-12">
@@ -266,10 +266,10 @@ export function HeroSection() {
         {/* Stats Row */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
           {[
-            { value: liveMatches.length > 0 ? `${liveMatches.length}` : "0", label: "Live Now", labelAr: "مباريات حية" },
+            { value: liveMatches.length > 0 ? `${liveMatches.length}` : "0", label: "Live Now", labelAr: "مباشر الآن" },
             { value: "50K+", label: "Active Users", labelAr: "مستخدم نشط" },
             { value: "99.9%", label: "Uptime", labelAr: "وقت التشغيل" },
-            { value: "AI", label: "Powered", labelAr: "مدعوم بالذكاء" },
+            { value: "AI", label: "Powered", labelAr: "ذكاء اصطناعي" },
           ].map((stat, index) => (
             <div key={index} className="glass rounded-xl p-4 text-center hover:glow-border-green transition-all duration-300">
               <p className="text-2xl md:text-3xl font-bold text-primary neon-text-green">{stat.value}</p>

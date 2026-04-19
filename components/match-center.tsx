@@ -71,6 +71,7 @@ export function MatchCenter() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
             <Calendar className="h-4 w-4 text-secondary" />
             <span className="text-sm font-medium text-secondary">UPCOMING MATCHES</span>
+            <span className="text-sm text-muted-foreground" dir="rtl">المباريات القادمة</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-3">
             Match <span className="text-primary neon-text-green">Center</span>
@@ -88,7 +89,7 @@ export function MatchCenter() {
           <div className="flex flex-col items-center justify-center py-20">
             <Loader2 className="h-12 w-12 text-primary animate-spin mb-4" />
             <p className="text-muted-foreground">Loading upcoming matches...</p>
-            <p className="text-sm text-secondary" dir="rtl">جاري تحميل المباريات القادمة</p>
+            <p className="text-sm text-secondary" dir="rtl">جارٍ تحميل المباريات القادمة</p>
           </div>
         )}
 
@@ -98,7 +99,7 @@ export function MatchCenter() {
             <AlertCircle className="h-12 w-12 text-destructive mb-4" />
             <p className="text-foreground font-medium mb-1">Unable to Load Matches</p>
             <p className="text-muted-foreground text-center">{error}</p>
-            <p className="text-sm text-secondary mt-2" dir="rtl">تعذر تحميل المباريات</p>
+            <p className="text-sm text-secondary mt-2" dir="rtl">تعذّر تحميل المباريات</p>
             <Button 
               variant="outline" 
               className="mt-4"

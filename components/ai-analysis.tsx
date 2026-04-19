@@ -7,7 +7,7 @@ const analysisFeatures = [
   {
     icon: Brain,
     title: "Neural Predictions",
-    titleAr: "توقعات عصبية",
+    titleAr: "التنبؤات الذكية",
     description: "Advanced machine learning models trained on millions of historical matches for accurate outcome predictions.",
     accuracy: "94.7%",
     color: "primary",
@@ -23,7 +23,7 @@ const analysisFeatures = [
   {
     icon: Target,
     title: "Value Detection",
-    titleAr: "كشف القيمة",
+    titleAr: "اكتشاف الفرص",
     description: "Proprietary algorithms identify undervalued odds across 200+ bookmakers worldwide.",
     accuracy: "87.3%",
     color: "primary",
@@ -58,12 +58,13 @@ export function AIAnalysis() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass glow-border-green mb-6">
             <Brain className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-primary">AI-POWERED</span>
+            <span className="text-sm text-muted-foreground" dir="rtl">مدعوم بالذكاء الاصطناعي</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-3">
             AI <span className="text-secondary neon-text-blue">Analysis</span>
           </h2>
           <p className="text-xl text-primary font-semibold" dir="rtl">
-            تحليل الذكاء الاصطناعي
+            التحليل الذكي
           </p>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Harness the power of artificial intelligence for data-driven sports insights and predictions
@@ -127,7 +128,7 @@ export function AIAnalysis() {
                 <BarChart3 className="h-5 w-5 text-secondary" />
                 <h3 className="text-xl font-bold text-foreground">Recent AI Predictions</h3>
               </div>
-              <p className="text-sm text-secondary" dir="rtl">أحدث توقعات الذكاء الاصطناعي</p>
+              <p className="text-sm text-secondary" dir="rtl">أحدث التوقعات الذكية</p>
             </div>
             <Button variant="outline" className="mt-4 md:mt-0 border-secondary text-secondary hover:bg-secondary/10">
               View All
