@@ -33,13 +33,15 @@ export function MatchCard({ match }: MatchCardProps) {
         {/* League Header */}
         <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
           <div className="relative w-5 h-5">
-            <Image
-              src={match.league.logo}
-              alt={match.league.name}
-              fill
-              className="object-contain"
-              crossOrigin="anonymous"
-            />
+            {match.league.logo && (
+              <Image
+                src={match.league.logo}
+                alt={match.league.name}
+                fill
+                className="object-contain"
+                unoptimized
+              />
+            )}
           </div>
           <span className="text-sm text-muted-foreground font-medium">
             {match.league.name}
@@ -65,13 +67,15 @@ export function MatchCard({ match }: MatchCardProps) {
           {/* Home Team */}
           <div className="flex-1 flex flex-col items-center gap-2">
             <div className="relative w-12 h-12 sm:w-16 sm:h-16">
-              <Image
-                src={match.teams.home.logo}
-                alt={match.teams.home.name}
-                fill
-                className="object-contain"
-                crossOrigin="anonymous"
-              />
+              {match.teams.home.logo && (
+                <Image
+                  src={match.teams.home.logo}
+                  alt={match.teams.home.name}
+                  fill
+                  className="object-contain"
+                  unoptimized
+                />
+              )}
             </div>
             <span className="text-sm font-medium text-center text-balance line-clamp-2">
               {match.teams.home.name}
@@ -94,13 +98,15 @@ export function MatchCard({ match }: MatchCardProps) {
           {/* Away Team */}
           <div className="flex-1 flex flex-col items-center gap-2">
             <div className="relative w-12 h-12 sm:w-16 sm:h-16">
-              <Image
-                src={match.teams.away.logo}
-                alt={match.teams.away.name}
-                fill
-                className="object-contain"
-                crossOrigin="anonymous"
-              />
+              {match.teams.away.logo && (
+                <Image
+                  src={match.teams.away.logo}
+                  alt={match.teams.away.name}
+                  fill
+                  className="object-contain"
+                  unoptimized
+                />
+              )}
             </div>
             <span className="text-sm font-medium text-center text-balance line-clamp-2">
               {match.teams.away.name}
