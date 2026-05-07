@@ -3,42 +3,89 @@ import { NextResponse } from "next/server";
 const API_KEY = process.env.API_FOOTBALL_KEY;
 const BASE_URL = "https://v3.football.api-sports.io";
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const type = searchParams.get("type") || "live"; // live, today, upcoming
+  
   if (!API_KEY) {
-    // Return demo data if no API key
     return NextResponse.json({
       response: getDemoMatches(),
+      isDemo: true,
+      message: "API key not configured"
     });
   }
 
   try {
-    const response = await fetch(`${BASE_URL}/fixtures?live=all`, {
+    let endpoint = "";
+    const today = new Date().toISOString().split("T")[0];
+    
+    switch (type) {
+      case "live":
+        endpoint = `${BASE_URL}/fixtures?live=all`;
+        break;
+      case "today":
+        endpoint = `${BASE_URL}/fixtures?date=${today}`;
+        break;
+      case "upcoming":
+        endpoint = `${BASE_URL}/fixtures?next=20`;
+        break;
+      default:
+        endpoint = `${BASE_URL}/fixtures?live=all`;
+    }
+
+    const response = await fetch(endpoint, {
       headers: {
         "x-apisports-key": API_KEY,
       },
-      next: { revalidate: 60 },
+      cache: "no-store",
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch matches");
+      const errorText = await response.text();
+      console.error("API Error:", response.status, errorText);
+      throw new Error(`API Error: ${response.status}`);
     }
 
     const data = await response.json();
     
-    // If no live matches, return demo data
-    if (!data.response || data.response.length === 0) {
+    // If no matches found for live, try to get today's matches
+    if (type === "live" && (!data.response || data.response.length === 0)) {
+      const todayResponse = await fetch(`${BASE_URL}/fixtures?date=${today}`, {
+        headers: {
+          "x-apisports-key": API_KEY,
+        },
+        cache: "no-store",
+      });
+      
+      if (todayResponse.ok) {
+        const todayData = await todayResponse.json();
+        if (todayData.response && todayData.response.length > 0) {
+          return NextResponse.json({
+            ...todayData,
+            isToday: true,
+            message: "لا توجد مباريات حية حالياً - عرض مباريات اليوم"
+          });
+        }
+      }
+      
+      // If still no matches, return demo
       return NextResponse.json({
         response: getDemoMatches(),
         isDemo: true,
+        message: "لا توجد مباريات متاحة حالياً"
       });
     }
 
-    return NextResponse.json(data);
+    return NextResponse.json({
+      ...data,
+      isLive: type === "live" && data.response?.length > 0
+    });
   } catch (error) {
     console.error("Error fetching matches:", error);
     return NextResponse.json({
       response: getDemoMatches(),
       isDemo: true,
+      error: error instanceof Error ? error.message : "Unknown error"
     });
   }
 }
